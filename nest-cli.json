@@ -1,0 +1,18 @@
+{
+  "monorepo": true,
+  "root": "/",
+  "projects": {
+    "receiver-service": {
+      "type": "application",
+      "root": "receiver-service",
+      "entryFile": "main",
+      "sourceRoot": "receiver-service/src"
+    },
+    "listener-service": {
+      "type": "application",
+      "root": "listener-service",
+      "entryFile": "main",
+      "sourceRoot": "listener-service/src"
+    }
+  }
+}

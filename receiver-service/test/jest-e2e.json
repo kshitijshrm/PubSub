@@ -1,0 +1,27 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "./../",
+  "testRegex": ".e2e-spec.ts$",
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "collectCoverageFrom": ["<rootDir>/src/**/*.(t|j)s"],
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/src/shared/schemas",
+    "<rootDir>/cli",
+    "index.ts",
+    ".entity.ts",
+    ".pipe.ts",
+    ".module.ts",
+    "main.ts",
+    "test.helpers.ts",
+    ".spec.ts"
+  ],
+  "coverageDirectory": "coverage",
+  "setupFiles": ["<rootDir>/.jest/setEnvVars.ts"],
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1"
+  },
+  "maxWorkers": 1
+}

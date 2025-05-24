@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Receiver Service API
+  version: 1.0.0
+  description: API to receive user data and enqueue it for processing
+
+servers:
+  - url: http://localhost:3000/app/receiver-service
+
+paths:
+  /receiver:
+    post:
+      summary: Receive user data for processing
+      tags:
+        - Receiver
+      parameters:
+        - name: x-receiver-api-userId
+          in: header
+          required: true
+          schema:
+            type: string
+          example: user-1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - user
+                - class
+                - age
+                - email
+              properties:
+                user:
+                  type: string
+                  description: Name of the user
+                class:
+                  type: string
+                  description: Class/category of the user
+                age:
+                  type: integer
+                  description: Age of the user
+                email:
+                  type: string
+                  format: email
+                  description: Email of the user
+            example:
+              user: "Tinku Sharma"
+              class: "Comics"
+              age: 26
+              email: "harry@potter.com"
+      responses:
+        202:
+          description: Request has been accepted for processing
+          content:
+            application/json:
+              example:
+                id: "b74bd9c2-8590-4149-9628-3f738099831a"
+                statusCode: 202
+                message: "Request has been accepted for processing."
+        400:
+          description: Invalid input data
